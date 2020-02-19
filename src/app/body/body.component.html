@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-lg-3">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home"
+         role="tab" aria-controls="home">Home</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile"
+         role="tab" aria-controls="profile">Profile</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages"
+         role="tab" aria-controls="messages">Messages</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings"
+         role="tab" aria-controls="settings">Settings</a>
+    </div>
+  </div>
+
+
+  <br>
+  <p><br>Data Binding Test<br>{{ name }}<br>{{ name.length }}<br>{{ 'Welcome ' + name}}<br>
+    <br>
+    <button class="btn btn-primary" disabled="{{isdisable}}">Interpolation</button>
+    <br>
+    <button class="btn btn-primary" [disabled]="isdisable">Property</button>
+    <br>
+    <button class="btn btn-info" (click)="onclick()">Click Me</button>
+    <br>
+    <h2 [ngClass]="special">{{name}}</h2>
+
+
+</div>
+<br>
+<br>
+
+<h1 *ngIf="haserror">condition based Handling</h1>
+<h1 *ngIf="!haserror">condition based Handling else part</h1>
+
+<br>
+
+<p> ngdirective Test</p>
+
+
+<h1 *ngIf="haserror">condition based Handling</h1>
+<h1 *ngIf="!haserror">condition based Handling else part</h1>
+
+<!--<h1 *ngIf="haserror; else elsepart; then: ifpart"></h1>-->
+<!--<ng-template #elsepart>-->
+<!--  <h1>condition based Handling else part</h1>-->
+<!--</ng-template>-->
+<!--<ng-template #ifpart>-->
+<!--  <h1>condition based Handling</h1>-->
+<!--</ng-template>-->
+<br>
+
+
+<div [ngSwitch]="day">
+  <p *ngSwitchCase="1">Mon</p>
+  <p *ngSwitchCase="2">Tues</p>
+  <p *ngSwitchCase="3">Wed</p>
+  <p *ngSwitchCase="4">Thurs</p>
+  <p *ngSwitchCase="5">Fri</p>
+  <p *ngSwitchCase="6">Sat</p>
+</div>
+
+
+<p *ngFor="let a of arr">{{ a }}</p>
+
+<br>
+<button class="btn btn-primary" (click)="onbuttonclick()">Refresh data</button>
+<table class="table table-hover" style="text-align: center">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of Employees;
+        trackBy: trackByEmpId;
+        index as i;
+        odd as o;
+        even as e;
+        first as f;
+        last as l" [style.background]="o ? 'yellow' : 'grey'">
+      <td>{{emp.empid}}</td>
+      <td>{{emp.Name}}</td>
+      <td>{{emp.email}}</td>
+
+    </tr>
+  </tbody>
+
+</table>
