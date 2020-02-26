@@ -1,0 +1,24 @@
+
+   <ul *ngFor="let name of names">
+    <li>{{ name }}</li>
+ </ul>
+
+ <div class="container">
+     <h1>Employee List</h1>
+     <table class="table">
+         <thead>
+             <tr>
+                 <th>Code</th>
+                 <th>Name</th>
+                 <th>Age</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let employee of employees">
+                 <td>{{ employee.empId }}</td>
+                 <td>{{ employee.empName }}</td>
+                 <td>{{ employee.age }}</td>
+             </tr>
+         </tbody>
+     </table>
+ </div>

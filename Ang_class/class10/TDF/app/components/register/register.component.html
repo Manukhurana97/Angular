@@ -1,0 +1,69 @@
+<div class="container">
+
+    <h1>Registration</h1>
+
+   
+         
+
+
+    <form #userForm="ngForm">
+
+        {{ userForm.value | json }}
+        <br>
+        <hr>
+        <br>
+        {{ userModel | json }}
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input [(ngModel)]="userModel.username" name="username" type="text" id="username" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Email</label>
+            <input [(ngModel)]="userModel.email" name="email" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input [(ngModel)]="userModel.phone" name="phone" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Category</label>
+            <select [(ngModel)]="userModel.category" name="category" class="form-control" >
+                <option value="">---Please select---</option>
+                <option *ngFor="let category of categories">{{ category }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            Gender
+            <div class="form-check">
+                <input [(ngModel)]="userModel.gender" class="form-check-input" value="male" name="gender" type="radio" >
+                <label class="form-check-label" >
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input [(ngModel)]="userModel.gender" class="form-check-input" value="female" name="gender" type="radio" >
+                <label class="form-check-label" >
+                  Female
+                </label>
+              </div>
+        </div>
+
+        <div class="form-group">
+            
+            <input [(ngModel)]="userModel.subscribe" name="subscribe" type="checkbox"> Subscribe
+        </div>
+
+        <input type="submit" value="Register" class="btn btn-primary">
+
+    </form>
+
+
+ 
+
+
+</div>
