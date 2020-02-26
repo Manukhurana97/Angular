@@ -1,0 +1,19 @@
+<h4 style="text-align: center">All Categories</h4>
+
+<!--{{categories | json}}-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm" *ngFor="let cat of categories">
+      <div class="card" style="width: 18rem;" (click)="onselectCategory(cat)">
+        <img class="card-img-top" src="http://rjtmobile.com/grocery/images/{{ cat.catImage }}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{ cat.catName }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+

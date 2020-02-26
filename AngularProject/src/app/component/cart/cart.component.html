@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th> Product Name</th>
+      <th> Product Price</th>
+      <th><button (click)="deleteall()" class="btn-danger">Clear Basket</button><i class="fal fa-dolly-empty"></i> </th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let crt of cart">
+    <td><img src="http://rjtmobile.com/grocery/images/{{ crt.image }}" width="100" height="100"></td>
+    <td>{{crt.productName}}</td>
+    <td>{{crt.price | currency}}</td>
+
+    <td><button (click)="deleteitem(crt)"><i class="fas fa-trash-alt"></i></button></td>
+  </tr>
+  </tbody>
+</table>
+  Total<h1>{{total | currency}}</h1>      Count<h1>{{count}}</h1>
+

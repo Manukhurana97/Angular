@@ -1,0 +1,115 @@
+<br>
+<div class="container">
+
+
+  <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Create Account</h4>
+      <p class="text-center">Get started with your free account</p>
+      <p>
+        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-git"></i>   Login via Twitter</a>
+        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+      </p>
+      <p class="divider-text">
+        <span class="bg-light">OR</span>
+      </p>
+      <!--printing backend data-->
+      <p>{{Userdata | json}}</p>
+
+      <!--printing form data-->
+      <p>{{ userform.value | json }}</p>
+      <br>
+
+      <form #userform='ngForm'>
+
+        <!--only printing data-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input #username='ngModel' ngModel name="FullName" class="form-control" placeholder="Full name" type="text"
+                 required="required" [class.is-invalid]="username.touched && username.invalid">
+          <small class="text-danger" [class.d-none]="username.valid || username.untouched  ">This is a required
+            field</small>
+
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+
+          <input #useremail="ngModel" [ngModel]="Userdata.email" name="Email" class="form-control"
+                 placeholder="Email address" type="email" [class.is-invalid]="useremail.touched && useremail.invalid"
+                 required="required">
+          <br><small class="text-danger" [class.d-none]="useremail.valid || username.untouched">This is a required
+          field</small>
+        </div>
+        {{useremail.touched}}<br>
+        <!--        {{useremail.className}}-->
+
+        <!--[(1 way data binding)]-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <select class="custom-select" style="max-width: 120px;">
+            <option value="1" *ngFor="let no of phoneno">{{no}}</option>
+
+          </select>
+          <input #userphone='ngModel' [ngModel]="Userdata.phone" name="PhoneNo" class="form-control"
+                 placeholder=" 10 digit Phone number" type="tel"
+                 [class.is-invalid]="userphone.touched && userphone.invalid" required="required" pattern="^\d{10}$">
+
+          <div *ngIf="userphone.errors && (userphone.invalid &&  userphone.touched)">
+            <small *ngIf="userphone.errors.required" class="text-danger">This is a required field</small>
+            <small *ngIf="userphone.errors.pattern" class="text-danger">no is invalid</small>
+          </div>
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input ngModel name="password" class="form-control" placeholder="Create password" type="password">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input ngModel name="password" class="form-control" placeholder="Repeat password" type="password">
+        </div> <!-- form-group// -->
+
+        <!--[(2 way data binding)]-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-male"></i> </span>
+          </div>&nbsp;&nbsp;
+          <input [(ngModel)]="Userdata.gender" name="Gender" value="male" type="Radio">Male
+          <br>
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-female"></i> </span>
+          </div>&nbsp;&nbsp;
+          <input [(ngModel)]="Userdata.gender" name="Gender" value="female" type="Radio">Female
+        </div> <!-- form-group// -->
+        <!--[(2 way data binding)]-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-thumbs-up"></i> </span>
+          </div>&nbsp;&nbsp;
+          <input [(ngModel)]="Userdata.subscribe" type="checkbox" value="Subscribe" name="Subscribe">Subscribe
+        </div> <!-- form-group// -->
+
+        <div class="form-group">
+          <button [disabled]="userform.invalid"  type="submit" class="btn btn-primary btn-block" > Create Account</button>
+        </div> <!-- form-group// -->
+        <p class="text-center">Have an account? <a href="/Login">Log In</a></p>
+      </form>
+    </article>
+  </div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+

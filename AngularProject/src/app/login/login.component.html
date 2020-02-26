@@ -1,0 +1,54 @@
+<!--<div class="wrapper fadeInDown">-->
+<!--  <div id="formContent">-->
+
+<!--    &lt;!&ndash; Icon &ndash;&gt;-->
+<!--    <div class="fadeIn first">-->
+<!--      <img src="../assets/Artboard_20-512.png" id="icon" alt="User Icon"/>-->
+<!--    </div>-->
+<!--    <br><br>-->
+
+<!--    &lt;!&ndash; Login Form &ndash;&gt;-->
+<!--    <form [formGroup]="userGroup" (ngSubmit)="onSubmit(userGroup.value)">-->
+<!--      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="email">-->
+<!--      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">-->
+<!--      <input type="submit" class="fadeIn fourth" value="Log In">-->
+<!--    </form>-->
+
+<!--    &lt;!&ndash; Remind Passowrd &ndash;&gt;-->
+<!--    <div id="formFooter">-->
+<!--      <a class="underlineHover" href="#">Forgot Password?</a>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+
+    <!-- Login Form -->
+
+    <h2>{{userForm.value| json}}</h2>
+
+
+
+    <form [formGroup]="userForm" (ngSubmit)="Onsubmit(userForm.value)" >
+      <div class="form-group">
+        <input  type="text" id="email" class="fadeIn second" placeholder="email"  formControlName="email"
+                [class.is-invalid] = "userForm.get('email').invalid && userForm.get('email').touched">
+        <br><small class="text-danger" [class.d-none]="userForm.get('email').valid && userForm.get('email').untouched">This is a required
+        field</small>
+      </div>
+      {{userForm.get('email').touched}}<br>
+      <input  type="text" id="password" class="fadeIn third" placeholder="Password"  formControlName="password">
+      <input  type="text" id="city" class="fadeIn third"  formControlName="city" placeholder="city">
+      <input  type="submit" class="fadeIn fourth" value="Log In" [disabled]="userForm.invalid" >
+    </form>
+
+
+
+
+  </div>
+</div>
